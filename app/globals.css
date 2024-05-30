@@ -35,3 +35,26 @@ body {
 .background {
   background-color: #a4a4c8;
 }
+
+.glitter {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #e0e0e0; /* Lighter grey color */
+  border-radius: 50%;
+  box-shadow: 0 0 10px #e0e0e0, 0 0 20px #e0e0e0, 0 0 30px #e0e0e0;
+  pointer-events: none;
+  opacity: 0;
+  animation: glitter 1s linear infinite;
+}
+
+@keyframes glitter {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
