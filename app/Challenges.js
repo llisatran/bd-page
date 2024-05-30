@@ -5,6 +5,7 @@ export default function Challenges() {
   const [error, setError] = useState("");
   const [code, setCode] = useState("");
   const [isClient, setIsClient] = useState(false);
+
   useEffect(() => {
     setIsClient(true);
   }, []);
@@ -13,6 +14,7 @@ export default function Challenges() {
     const value = e.target.value.slice(0, 4); // Ensure only 4 digits
     setCode(value);
   };
+
   const fetchChallenge = async () => {
     setError("");
     setDescription("");
@@ -35,28 +37,30 @@ export default function Challenges() {
     e.preventDefault();
     if (code.length === 4) {
       fetchChallenge();
+    } else {
+      setError("Code should contain 4 digits");
     }
-    setError("Code should contain 4 digits");
   };
+
   if (!isClient) {
     return null; // Ensure no mismatched content during SSR
   }
 
   return (
-    <div className="flex flex-col items-center ">
+    <div className="flex flex-col items-center">
       <input
         type="number"
         value={code}
-        onChange={(e) => handleChange(e)}
+        onChange={handleChange}
         className="mb-4 p-2 border rounded text-center"
-        placeholder="enter 4-digit code"
+        placeholder="Enter 4-digit code"
       />
       <button
         type="submit"
         onClick={handleSubmit}
         className="p-2 bg-blue-500 text-white rounded"
       >
-        submit
+        Submit
       </button>
       {error && <p className="mt-4 text-red-500">{error}</p>}
       {description && (

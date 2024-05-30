@@ -19,34 +19,45 @@ export default function Countdown({ targetDate }) {
     return timeLeft;
   };
 
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  const [timeLeft, setTimeLeft] = useState({});
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setTimeLeft(calculateTimeLeft());
-    }, 1000);
+    setIsClient(true);
 
-    return () => clearTimeout(timer);
-  });
+    if (isClient) {
+      const timer = setTimeout(() => {
+        setTimeLeft(calculateTimeLeft());
+      }, 1000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [timeLeft, isClient]);
 
   const timerComponents = [];
 
-  Object.keys(timeLeft).forEach((interval) => {
-    if (!timeLeft[interval]) {
-      return;
-    }
+  if (isClient) {
+    Object.keys(timeLeft).forEach((interval) => {
+      if (!timeLeft[interval]) {
+        return;
+      }
 
-    timerComponents.push(
-      <span key={interval}>
-        {timeLeft[interval]} {interval}{" "}
-      </span>
-    );
-  });
+      timerComponents.push(
+        <span key={interval}>
+          {timeLeft[interval]} {interval}{" "}
+        </span>
+      );
+    });
+  }
 
   return (
     <div className="mb-4 flex flex-col items-center text-white">
-      {timerComponents.length ? timerComponents : <span>Let's celebrate!</span>}
-      {timerComponents.length && "left to celebration!! 😌🥂"}
+      {isClient && timerComponents.length ? (
+        timerComponents
+      ) : (
+        <span>Loading...</span>
+      )}
+      {isClient && timerComponents.length ? "left to celebration!! 😌🥂" : ""}
     </div>
   );
 }
