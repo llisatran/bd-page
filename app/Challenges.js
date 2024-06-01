@@ -47,28 +47,30 @@ export default function Challenges() {
   }
 
   return (
-    <div className="flex flex-col items-center">
-      <form onSubmit={handleSubmit} className="flex flex-col items-center">
-        <input
-          type="number"
-          value={code}
-          onChange={handleChange}
-          className="mb-4 p-2 border rounded text-center"
-          placeholder="Enter 4-digit code"
-        />
-        <button type="submit" className="p-2 bg-blue-500 text-white rounded">
-          Submit
-        </button>
-      </form>
-      {error && <p className="mt-4 text-red-500">{error}</p>}
-      {description && (
-        <div className="mt-4 p-4 bg-gray-100 rounded">
-          <h2>
-            <b> Din utmaning för kvällen</b>
-          </h2>
-          <p>{description}</p>
-        </div>
-      )}
+    <div className="formContainer">
+      <div className="flex flex-col items-center">
+        <form onSubmit={handleSubmit} className="flex flex-col items-center">
+          <input
+            type="number"
+            value={code}
+            onChange={handleChange}
+            className="mb-4 p-2 border rounded text-center text-black"
+            placeholder="Enter 4-digit code"
+          />
+          <button type="submit" className="p-2 bg-blue-500 text-white rounded">
+            Submit
+          </button>
+        </form>
+        {error && <p className="mt-4 text-red-500">{error}</p>}
+        {description && (
+          <div className="mt-4 p-4 bg-gray-100 rounded">
+            <h2>
+              <b> Din utmaning för kvällen</b>
+            </h2>
+            <p>{description}</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

@@ -25,15 +25,19 @@ export default function Home() {
     addGlitterEffect();
   }, []);
   return (
-    <main className="flex min-h-screen flex-col items-center p-0 bg-[#a5a5c9]">
-      <div className="relative w-full h-[50vh] md:h-[50vh] overflow-hidden">
-        <Image
-          className="object-cover w-full h-full"
-          src="/logo.png"
-          alt="Logo"
-          layout="fill"
-          priority
-        />
+    <main className="flex flex-col items-center justify-start min-h-screen bg-[#a2a2c8] overflow-x-hidden">
+      <div className="w-full flex justify-center ">
+        <div className="relative w-4/5 sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-1/4">
+          <Image
+            className="object-contain top-0 "
+            src="/logo.png"
+            alt="Logo"
+            layout="responsive"
+            width={500}
+            height={200}
+            priority
+          />
+        </div>
       </div>
       <Countdown targetDate="2024-06-08T18:00:00" />
       <Challenges />
