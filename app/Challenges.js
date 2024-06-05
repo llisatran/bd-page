@@ -47,7 +47,7 @@ export default function Challenges() {
   }
 
   return (
-    <div className="formContainer">
+    <div className="mb-2">
       <div className="flex flex-col items-center">
         <form onSubmit={handleSubmit} className="flex flex-col items-center">
           <input
@@ -63,7 +63,7 @@ export default function Challenges() {
         </form>
         {error && <p className="mt-4 text-red-500">{error}</p>}
         {description && (
-          <div className="mt-4 p-4 bg-gray-100 rounded">
+          <div className="mt-4 p-4 bg-gray-100 rounded text-black">
             <h2>
               <b> Din utmaning för kvällen</b>
             </h2>

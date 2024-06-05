@@ -26,7 +26,42 @@ body {
     --background-end-rgb: 0, 0, 0;
   }
 }
+.bottomImage {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.container {
+  text-align: center;
+}
+
+.toggleButton {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #38ad2c;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.imageContainer {
+  transition: max-height 0.5s ease;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.collapsed {
+  max-height: 0;
+}
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(

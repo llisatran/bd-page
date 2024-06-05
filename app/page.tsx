@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Countdown from "./Countdown";
 import Challenges from "./Challenges";
+import CollapsibleQR from "./CollapsibleQR";
 import { useEffect } from "react";
 
 const addGlitterEffect = () => {
@@ -41,6 +42,7 @@ export default function Home() {
       </div>
       <Countdown targetDate="2024-06-08T18:00:00" />
       <Challenges />
+      <CollapsibleQR />
     </main>
   );
 }
