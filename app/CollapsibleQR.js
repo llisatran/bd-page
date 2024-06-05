@@ -11,7 +11,7 @@ const CollapsibleQR = () => {
   return (
     <div className="container">
       <button onClick={toggleCollapse} className="toggleButton">
-        {isCollapsed ? "Show QR" : "Hide QR"}
+        {isCollapsed ? "Show Donation QR" : "Hide Donation QR"}
       </button>
       <div className={`imageContainer  ${isCollapsed ? "collapsed" : ""}`}>
         <Image src="/qr.png" alt="qr" width={150} height={150} />
